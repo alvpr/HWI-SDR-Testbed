@@ -6,12 +6,12 @@ You will find the GNU Radio companion flowgraphs (.grc) and Python files for the
 Mind that the GNU Radio version is 3.9. Nevertheless, the only block needed is demonstrator_crc32_check, which may be installed manually in a different version. Parameters for that block are:
 - **Rate number of packets** -> Number of packets used for each SER measurement.
 - **L symbols** -> Number of symbols of the payload. For instance, for 16-QAM and a payload of 100 bytes L = 100*8/4 = 200.
-- **User label** -> Label for the display
+- **User label** -> Label for the display.
 
 You will also have to change the ursp address in the blocks UHD:USRP Source and UHD:USRP Sink to match the address of your hardware.
 
 ## Important Considerations
-Mind that, when changing the receiver (from HWI-aware to non-aware) the parameter *const_iq* must be changed to *const* in the following blocks
+Mind that, when changing the receiver (from HWI-aware to non-aware) the parameter *const_iq* must be changed to *const* in the following blocks:
 - **Constellation Receiver**
 - **Constellation Decoder**
 
