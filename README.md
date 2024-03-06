@@ -1,5 +1,6 @@
 # Sofware-Defined Radio Testbed for Hardware Impaired Communication Systems
 This repository contains the code for the paper with the same title submitted to the IEEE Wireless Communications Letters.
+![Alt text](graph.png)
 
 ## Getting Started
 You will find the GNU Radio companion flowgraphs (.grc) and Python files for the constellations QPSK, 16-QAM, 64-QAM and 16-PAM. For instructions on installing GNU Radio check [here](https://wiki.gnuradio.org/index.php/InstallingGR) . To run the flowgraphs you will need to install the out-of-tree module gr-demostrador (for instructions, check [here](https://wiki.gnuradio.org/index.php/OutOfTreeModules)).
