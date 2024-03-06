@@ -1,0 +1,40 @@
+id: demonstrator_constellation_decoder_sic
+label: Constellation Decoder SIC
+category: '[demonstrator]'
+
+templates:
+  imports: import demonstrator
+  make: demonstrator.constellation_decoder_sic(${constellation},${n_user}, ${power_allocation_factors})
+
+#  Make one 'parameters' list entry for every parameter you want settable from the GUI.
+#     Keys include:
+#     * id (makes the value accessible as keyname, e.g. in the make entry)
+#     * label (label shown in the GUI)
+#     * dtype (e.g. int, float, complex, byte, short, xxx_vector, ...)
+parameters:
+-   id: constellation
+    label: Constellation Object
+    dtype: raw
+
+-   id: n_user
+    label: Numer of SIC iterations
+    dtype: int
+
+-   id: power_allocation_factors
+    label: Scaling factors
+    dtype: float_vector
+
+inputs:
+-   domain: stream
+    dtype: complex
+
+outputs:
+-   domain: stream
+    dtype: byte
+
+
+asserts:
+- ${ n_user >= 0}
+
+
+file_format: 1

@@ -1,0 +1,24 @@
+id: demonstrator_sequence_detector_bb
+label: Sequence Detector
+category: '[demonstrator]'
+
+templates:
+  imports: import demonstrator
+  make: demonstrator.sequence_detector_bb()
+
+#  Make one 'parameters' list entry for every parameter you want settable from the GUI.
+#     Keys include:
+#     * id (makes the value accessible as keyname, e.g. in the make entry)
+#     * label (label shown in the GUI)
+#     * dtype (e.g. int, float, complex, byte, short, xxx_vector, ...)
+
+inputs:
+-   domain: stream
+    dtype: byte
+
+outputs:
+-   domain: stream
+    dtype: byte
+
+
+file_format: 1

@@ -1,0 +1,44 @@
+id: demonstrator_constellation_joint_decoder
+label: Constellation Joint Decoder
+category: '[demonstrator]'
+
+templates:
+  imports: import demonstrator
+  make: demonstrator.constellation_joint_decoder(${constj}, ${const1}, ${const2}, ${n_user})
+
+#  Make one 'parameters' list entry for every parameter you want settable from the GUI.
+#     Keys include:
+#     * id (makes the value accessible as keyname, e.g. in the make entry)
+#     * label (label shown in the GUI)
+#     * dtype (e.g. int, float, complex, byte, short, xxx_vector, ...)
+parameters:
+-   id: constj
+    label: Constellation Joint 
+    dtype: raw
+
+-   id: const1
+    label: Constellation User 1
+    dtype: raw
+
+-   id: const2
+    label: Constellation User 2
+    dtype: raw
+
+-   id: n_user
+    label: N User
+    dtype: int
+
+
+inputs:
+-   domain: stream
+    dtype: complex
+
+outputs:
+-   domain: stream
+    dtype: byte
+
+
+asserts:
+- ${ n_user >= 0}
+
+file_format: 1

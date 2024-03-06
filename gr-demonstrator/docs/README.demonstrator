@@ -1,0 +1,11 @@
+This is the demonstrator-write-a-block package meant as a guide to building
+out-of-tree packages. To use the demonstrator blocks, the Python namespaces
+is in 'demonstrator', which is imported as:
+
+    import demonstrator
+
+See the Doxygen documentation for details about the blocks available
+in this package. A quick listing of the details can be found in Python
+after importing by using:
+
+    help(demonstrator)

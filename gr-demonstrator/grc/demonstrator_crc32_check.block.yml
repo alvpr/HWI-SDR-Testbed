@@ -1,0 +1,37 @@
+id: demonstrator_crc32_check
+label: CRC32 Check
+category: '[demonstrator]'
+
+templates:
+  imports: import demonstrator
+  make: demonstrator.crc32_check(${n_packets}, ${n_sym}, ${n_user})
+
+parameters:
+- id: n_packets
+  label: Rate number of Packets 
+  dtype: int
+
+- id: n_sym
+  label: L Symbols
+  dtype: int
+
+- id: n_user
+  label: User label
+  dtype: int
+
+inputs:
+- domain: message
+  id: in
+  optional: true
+
+
+outputs:
+- domain: message
+  id: out
+  optional: true
+
+
+asserts:
+- ${ n_packets > 0}
+
+file_format: 1

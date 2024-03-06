@@ -1,0 +1,27 @@
+id: demonstrator_header_detector_bb
+label: Header Detector
+category: '[demonstrator]'
+
+templates:
+  imports: import demonstrator
+  make: demonstrator.header_detector_bb(${n_payload_bytes})
+
+#  Make one 'parameters' list entry for every parameter you want settable from the GUI.
+#     Keys include:
+#     * id (makes the value accessible as keyname, e.g. in the make entry)
+#     * label (label shown in the GUI)
+#     * dtype (e.g. int, float, complex, byte, short, xxx_vector, ...)
+parameters:
+- id: n_payload_bytes
+  label: N payload bytes
+  dtype: int
+
+inputs:
+-   domain: stream
+    dtype: byte
+
+outputs:
+-   domain: stream
+    dtype: byte
+
+file_format: 1

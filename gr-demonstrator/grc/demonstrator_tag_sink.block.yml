@@ -1,0 +1,29 @@
+id: demonstrator_tag_sink
+label: Tag Sink
+category: '[demonstrator]'
+
+templates:
+  imports: import demonstrator
+  make: demonstrator.tag_sink(${filename}, ${tag_key})
+
+#  Make one 'parameters' list entry for every parameter you want settable from the GUI.
+#     Keys include:
+#     * id (makes the value accessible as keyname, e.g. in the make entry)
+#     * label (label shown in the GUI)
+#     * dtype (e.g. int, float, complex, byte, short, xxx_vector, ...)
+parameters:
+- id: filename
+  label: File
+  dtype: string
+
+- id: tag_key
+  label: Tag Key
+  dtype: string
+
+
+inputs:
+- label: in
+  dtype: complex
+
+  
+file_format: 1

@@ -1,0 +1,34 @@
+id: demonstrator_dispersion_meas
+label: Dispersion Meas
+category: '[demonstrator]'
+
+templates:
+  imports: import demonstrator
+  make: demonstrator.dispersion_meas(${constellation}, ${length}, ${length_init})
+
+parameters:
+- id: constellation
+  label: Constellation Object
+  dtype: raw
+
+- id: length
+  label: Length (samples)
+  dtype: int
+
+- id: length_init
+  label: Start Length (samples)
+  dtype: int
+
+inputs:
+- label: in
+  dtype: complex
+
+outputs:
+-   domain: message
+    optional: true
+
+
+
+#  'file_format' specifies the version of the GRC yml format used in the file
+#  and should usually not be changed.
+file_format: 1

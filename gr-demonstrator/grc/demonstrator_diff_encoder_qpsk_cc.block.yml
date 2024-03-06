@@ -1,0 +1,17 @@
+id: demonstrator_diff_encoder_qpsk_cc
+label: Differential Encoder QPSK
+category: '[demonstrator]'
+
+templates:
+  imports: import demonstrator
+  make: demonstrator.diff_encoder_qpsk_cc()
+
+inputs:
+-   domain: stream
+    dtype: complex
+
+outputs:
+-   domain: stream
+    dtype: complex
+
+file_format: 1
