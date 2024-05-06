@@ -1,4 +1,4 @@
-# Sofware-Defined Radio Testbed for Hardware Impaired Communication Systems
+# Sofware-Defined Radio Testbed for I/Q Imbalanced Communication Systems
 This repository contains the code for the paper with the same title submitted to the IEEE Communications Letters.
 ![Alt text](graph.png)
 
