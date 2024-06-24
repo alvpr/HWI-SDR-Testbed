@@ -1,5 +1,5 @@
 # Sofware-Defined Radio Testbed for I/Q Imbalanced Communication Systems
-This repository contains the code for the paper with the same title submitted to the IEEE Communications Letters.
+This repository contains the code for the paper with the same title submitted to the MDPI Electronics.
 ![Alt text](graph.png)
 
 ## Getting Started
