@@ -4,7 +4,7 @@ This repository contains the code for the paper with the same title submitted to
 
 ## Getting Started
 You will find the GNU Radio companion flowgraphs (.grc) and Python files for the constellations QPSK, 16-QAM, 64-QAM and 16-PAM. For instructions on installing GNU Radio check [here](https://wiki.gnuradio.org/index.php/InstallingGR) . To run the flowgraphs you will need to install the out-of-tree module gr-demostrador (for instructions, check [here](https://wiki.gnuradio.org/index.php/OutOfTreeModules)).
-Mind that the GNU Radio version is 3.9. Nevertheless, the only block needed is demonstrator_crc32_check, which may be installed manually in a different version. Parameters for that block are:
+Mind that the GNU Radio version is 3.9. Nevertheless, the only blocks needed are demonstrator_crc32_check and disp_meas, which may be installed manually in a different version. Parameters for that block are:
 - **Rate number of packets** -> Number of packets used for each SER measurement.
 - **L symbols** -> Number of symbols of the payload. For instance, for 16-QAM and a payload of 100 bytes L = 100*8/4 = 200.
 - **User label** -> Label for the display.
