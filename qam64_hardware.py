@@ -87,7 +87,7 @@ class qam64_hardware(gr.top_block, Qt.QWidget):
         self.const_base = const_base = digital.qam_constellation(64,True,digital.mod_codes.GRAY_CODE,False)
         self.p = p = const_base.points()
         self.pavg = pavg = np.sum(np.abs(p)**2)/len(p)
-        self.snr = snr = 50
+        self.snr = snr = 30
         self.pnorm = pnorm = 1
         self.pconst = pconst = p/np.sqrt(pavg)
         self.h2 = h2 = 0.0841 + 0.0364j
@@ -149,7 +149,7 @@ class qam64_hardware(gr.top_block, Qt.QWidget):
             self.controls_grid_layout_1.setRowStretch(r, 1)
         for c in range(1, 2):
             self.controls_grid_layout_1.setColumnStretch(c, 1)
-        self._snr_range = Range(0, 200, 0.5, 50, 200)
+        self._snr_range = Range(0, 200, 0.5, 30, 200)
         self._snr_win = RangeWidget(self._snr_range, self.set_snr, 'SNR', "counter_slider", float, QtCore.Qt.Horizontal)
         self.controls_grid_layout_0.addWidget(self._snr_win, 2, 1, 1, 1)
         for r in range(2, 3):
@@ -380,7 +380,8 @@ class qam64_hardware(gr.top_block, Qt.QWidget):
         self.digital_constellation_receiver_cb_0 = digital.constellation_receiver_cb(const_iq, phase_bw, -0.5, 0.5)
         self.digital_constellation_decoder_cb_0_0 = digital.constellation_decoder_cb(const_iq)
         self.digital_chunks_to_symbols_xx_0 = digital.chunks_to_symbols_bc(const.points(), 1)
-        self.demonstrator_crc32_check_0 = demonstrator.crc32_check(1000, 136, 1)
+        self.demonstrator_dispersion_meas_0 = demonstrator.dispersion_meas(const_iq, int(samp_rate), int(samp_rate))
+        self.demonstrator_crc32_check_0 = demonstrator.crc32_check(10000, 136, 1)
         self.blocks_vector_source_x_1 = blocks.vector_source_b([225,90,232,147,0,104,0,104], True, 1, [])
         self.blocks_unpack_k_bits_bb_0 = blocks.unpack_k_bits_bb(const.bits_per_symbol())
         self.blocks_tagged_stream_to_pdu_0_0 = blocks.tagged_stream_to_pdu(blocks.byte_t, 'payload_len')
@@ -446,6 +447,7 @@ class qam64_hardware(gr.top_block, Qt.QWidget):
         self.connect((self.digital_constellation_receiver_cb_0, 1), (self.blocks_null_sink_0_0, 0))
         self.connect((self.digital_constellation_receiver_cb_0, 2), (self.blocks_null_sink_0_0_0, 0))
         self.connect((self.digital_constellation_receiver_cb_0, 3), (self.blocks_null_sink_0_0_1, 0))
+        self.connect((self.digital_constellation_receiver_cb_0, 4), (self.demonstrator_dispersion_meas_0, 0))
         self.connect((self.digital_constellation_receiver_cb_0, 4), (self.digital_constellation_decoder_cb_0_0, 0))
         self.connect((self.digital_constellation_receiver_cb_0, 4), (self.qtgui_const_sink_x_0, 0))
         self.connect((self.digital_correlate_access_code_xx_ts_0, 0), (self.blocks_repack_bits_bb_0_1_0, 0))
